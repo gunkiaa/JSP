@@ -27,7 +27,7 @@ public class BoardDAO {
 		Connection conn = db.getConnection();
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		try {
+		try {dsad
 
 			ps = conn.prepareStatement(listSQL);
 			rs = ps.executeQuery();
