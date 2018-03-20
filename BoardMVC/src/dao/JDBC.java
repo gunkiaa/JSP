@@ -5,7 +5,7 @@ import java.sql.*;
 public class JDBC {
 
 	private final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	private final String DB_URL = "jdbc:mysql://localHost:3306/board?useUnicode=yes&amp;characterEncoding=UTF-8&amp;autoReconnect=true";
+	private final String DB_URL = "jdbc:mysql://localHost:3306/board";
 	private final String DB_ID = "scott";
 	private final String DB_PW = "tiger";
 
