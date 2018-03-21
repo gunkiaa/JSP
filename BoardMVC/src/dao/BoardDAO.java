@@ -61,9 +61,9 @@ public class BoardDAO {
 
 	}
 
-	public ArrayList<BoardDTO> contentView(int idx) {
+	public BoardDTO contentView(int idx) {
 
-		ArrayList<BoardDTO> dtos = new ArrayList<BoardDTO>();
+		BoardDTO dto = null;
 
 		upHit(idx);
 
@@ -81,13 +81,12 @@ public class BoardDAO {
 
 				int bId = rs.getInt("BID");
 				String bName = rs.getString("BNAME");
-				String bTitle = rs.getString("BCONTENT");
+				String bTitle = rs.getString("BTITLE");
 				String bContent = rs.getString("BCONTENT");
 				Timestamp bDate = rs.getTimestamp("BDATE");
 				int bHit = rs.getInt("bHit");
 
-				BoardDTO dto = new BoardDTO(bId, bName, bTitle, bContent, bDate, bHit);
-				dtos.add(dto);
+				dto = new BoardDTO(bId, bName, bTitle, bContent, bDate, bHit);
 			}
 
 		} catch (Exception e) {
@@ -100,7 +99,7 @@ public class BoardDAO {
 
 		}
 
-		return dtos;
+		return dto;
 
 	}
 
@@ -125,6 +124,18 @@ public class BoardDAO {
 			ps.setString(3, content);
 
 			insertCnt = ps.executeUpdate();
+			
+			if(insertCnt > 0) {
+				
+				System.out.println("insert 성공");
+				conn.commit();
+				
+			}else {
+				
+				System.out.println("insert 실패");
+				conn.rollback();
+				
+			}
 
 		} catch (Exception e) {
 
@@ -147,7 +158,19 @@ public class BoardDAO {
 			ps = conn.prepareStatement(upHitSQL);
 			ps.setInt(1, bId);
 
-			int Cnt = ps.executeUpdate();
+			int hitCnt = ps.executeUpdate();
+			
+//			if(hitCnt > 0) {
+//				
+//				System.out.println("조회수 증가 성공");
+//				conn.commit();
+//				
+//			}else {
+//				
+//				System.out.println("조회수 증가 실패");
+//				conn.rollback();
+//				
+//			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -171,6 +194,18 @@ public class BoardDAO {
 			ps.setString(1, idx);
 
 			deleteCnt = ps.executeUpdate();
+			
+			if(deleteCnt > 0) {
+				
+				System.out.println("삭제 성공");
+				conn.commit();
+				
+			}else {
+				
+				System.out.println("삭제 실패");
+				conn.rollback();
+				
+			}
 
 		} catch (Exception e) {
 
