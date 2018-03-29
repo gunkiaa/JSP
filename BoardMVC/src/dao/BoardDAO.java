@@ -61,10 +61,10 @@ public class BoardDAO {
 
 	}
 
-	public BoardDTO contentView(int idx) {
-
-		BoardDTO dto = null;
-
+	public ArrayList<BoardDTO> contentView(int idx) {
+		
+		ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
+		
 		upHit(idx);
 
 		Connection conn = db.getConnection();
@@ -86,7 +86,8 @@ public class BoardDAO {
 				Timestamp bDate = rs.getTimestamp("BDATE");
 				int bHit = rs.getInt("bHit");
 
-				dto = new BoardDTO(bId, bName, bTitle, bContent, bDate, bHit);
+				BoardDTO dto = new BoardDTO(bId, bName, bTitle, bContent, bDate, bHit);
+				list.add(dto);
 			}
 
 		} catch (Exception e) {
@@ -99,7 +100,7 @@ public class BoardDAO {
 
 		}
 
-		return dto;
+		return list;
 
 	}
 

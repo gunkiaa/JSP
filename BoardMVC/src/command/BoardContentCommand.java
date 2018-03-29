@@ -15,7 +15,7 @@ public class BoardContentCommand implements BoardCommand {
 		int bId = Integer.parseInt(request.getParameter("bId"));
 
 		BoardDAO dao = new BoardDAO();
-		BoardDTO dto = dao.contentView(bId);
+		ArrayList<BoardDTO> dto = dao.contentView(bId);
 
 		request.setAttribute("content_view", dto);
 	}
