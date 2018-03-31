@@ -105,15 +105,16 @@ public class BoardDAO {
 	}
 
 	public int insert(String title, String content) {
-
+		
 		int insertCnt = 0;
-
+		
+		
 		Connection conn = db.getConnection();
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 
 		try {
-
+			
 			ps = conn.prepareStatement(getIdxSQL);
 			rs = ps.executeQuery();
 			rs.next();
