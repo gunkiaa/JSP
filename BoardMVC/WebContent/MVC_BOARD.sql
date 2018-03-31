@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.17, for macos10.12 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: board
+-- Host: 127.0.0.1    Database: board
 -- ------------------------------------------------------
--- Server version	5.7.21
+-- Server version	5.7.21-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `mvc_board`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `mvc_board` (
   `bId` int(4) NOT NULL,
-  `bTitle` varchar(100) NOT NULL,
+  `bTitle` varchar(40) DEFAULT NULL,
   `bContent` varchar(300) NOT NULL,
   `bName` varchar(20) NOT NULL,
   `bDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -39,7 +39,6 @@ CREATE TABLE `mvc_board` (
 
 LOCK TABLES `mvc_board` WRITE;
 /*!40000 ALTER TABLE `mvc_board` DISABLE KEYS */;
-INSERT INTO `mvc_board` VALUES (8,'kimg','gug','Kimgun','2018-03-20 00:35:42',15),(9,'ì??ë??í??ì?¸ì??','ê¹?ê±´ì??ë??ë?¤.','Kimgun','2018-03-20 03:37:16',2),(10,'ì??ë??í??ì?¸ì??','ê¹?ê±´ì??ë??ë?¤.','Kimgun','2018-03-20 07:36:01',1),(11,'ì??ë??í??ì?¸ì??','ê¹?ê±´ì??ë??ë?¤.','Kimgun','2018-03-20 07:37:26',1),(12,'ì??ë??í??ì?¸ì??','ê¹?ê±´ì??ë??ë?¤.','Kimgun','2018-03-20 07:41:29',1),(13,'ì??ë??','ì??ë??','Kimgun','2018-03-20 07:42:37',0),(14,'ì??ì?¸','ì??ì?¸','Kimgun','2018-03-20 07:44:33',2),(15,'ì??ë??','ì??ë??','Kimgun','2018-03-20 10:08:15',0),(20,'????','????','??','2018-03-20 10:17:34',1),(21,'안냐세요','안냐세요','김건','2018-03-20 10:18:58',2),(22,'????','????','??','2018-03-20 10:27:23',0),(23,'ewq','ewq','Kimgun','2018-03-20 14:51:24',1),(24,'ì??ë??','ê¹?ê±´ì??ë??ë?¤.','Kimgun','2018-03-20 15:51:09',0),(25,'ì??ë??í??ì?¸ì??','ê¹?ê±´ì??ë??ë?¤.','Kimgun','2018-03-20 15:57:00',1),(26,'Hello World','Kimgun ','Kimgun','2018-03-20 15:59:49',8);
 /*!40000 ALTER TABLE `mvc_board` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-21 11:40:30
+-- Dump completed on 2018-03-31 13:33:04
