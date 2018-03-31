@@ -18,6 +18,7 @@ public class JDBC {
 			Class.forName(JDBC_DRIVER);
 
 			conn = DriverManager.getConnection(DB_URL, DB_ID, DB_PW);
+			conn.setAutoCommit( false );
 			
 			System.out.println("DB 접속 성공");
 		} catch (ClassNotFoundException e) {

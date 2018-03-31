@@ -14,7 +14,7 @@ public class BoardDAO {
 	String listSQL = "SELECT BID, BNAME, BTITLE, BCONTENT, BDATE, BHIT FROM MVC_BOARD";
 	String contentSQL = "SELECT BID, BNAME, BTITLE, BCONTENT, BDATE, BHIT FROM MVC_BOARD WHERE BID = ?";
 	String getIdxSQL = "SELECT IFNULL(MAX(BID)+1,1) FROM MVC_BOARD";
-	String insertSQL = "INSERT INTO MVC_BOARD(BID, BNAME, BTITLE, BCONTENT, BHIT) VALUES(?, 'Kimgun', ?, ?, 0)";
+	String insertSQL = "INSERT INTO MVC_BOARD(BID, BNAME, BTITLE, BCONTENT, BHIT) VALUES(?, ?, ?, ?, 0)";
 	String deleteSQL = "DELETE FROM MVC_BOARD WHERE BID=?";
 	String upHitSQL = "update mvc_board set bHit = bHit + 1 where bId = ?";
 
@@ -121,8 +121,9 @@ public class BoardDAO {
 
 			ps = conn.prepareStatement(insertSQL);
 			ps.setInt(1, maxIdx);
-			ps.setString(2, title);
-			ps.setString(3, content);
+			ps.setString(2, "김건");
+			ps.setString(3, title);
+			ps.setString(4, content);
 
 			insertCnt = ps.executeUpdate();
 			
@@ -161,17 +162,17 @@ public class BoardDAO {
 
 			int hitCnt = ps.executeUpdate();
 			
-//			if(hitCnt > 0) {
-//				
-//				System.out.println("조회수 증가 성공");
-//				conn.commit();
-//				
-//			}else {
-//				
-//				System.out.println("조회수 증가 실패");
-//				conn.rollback();
-//				
-//			}
+			if(hitCnt > 0) {
+				
+				System.out.println("조회수 증가 성공");
+				conn.commit();
+				
+			}else {
+				
+				System.out.println("조회수 증가 실패");
+				conn.rollback();
+				
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
