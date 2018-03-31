@@ -12,13 +12,13 @@ import command.*;
  * Servlet implementation class BoardFrontController
  */
 @WebServlet("*.do")
-public class BoardFrontController extends HttpServlet {
+public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public BoardFrontController() {
+	public FrontController() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -51,7 +51,7 @@ public class BoardFrontController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		String viewPage = null;
-		BoardCommand command = null;
+		Command command = null;
 
 		String uri = request.getRequestURI();
 		String conPath = request.getContextPath();
@@ -80,8 +80,14 @@ public class BoardFrontController extends HttpServlet {
 			command = new BoardDeleteCommand();
 			command.execute(request, response);
 			viewPage = "delete.jsp";
+		} else if (com.equals("/join.do")) {
+			System.out.println("##### Join.do");
+			command = new UserJoinCommand();
+			command.execute(request, response);
+			viewPage = "list.do";
 		}
-		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
-		dispatcher.forward(request, response);
+		
+			RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
+			dispatcher.forward(request, response);
 	}
 }

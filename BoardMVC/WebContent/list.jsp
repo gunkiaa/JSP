@@ -63,7 +63,7 @@ span>a:hover {
 </style>
 </head>
 <body>
-	<span style="border-bottom: 1px solid; float: right"><a href="#">회원가입</a></span>
+	<span style="border-bottom: 1px solid; float: right"><a href="join.jsp">회원가입</a></span>
 	<span
 		style="border-bottom: 1px solid; float: right; border-bottom: 1px solid; margin-right: 10px;"><a
 		href="#">로그인</a></span>
@@ -80,6 +80,7 @@ span>a:hover {
 			<th style="width: 180px;">작성일</th>
 			<th style="width: 70px;">조회수</th>
 			<th style="width: 30px;">삭제</th>
+			
 		</tr>
 		<c:forEach items="${list}" var="dto">
 			<tr style="height: 40px;"

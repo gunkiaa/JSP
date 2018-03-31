@@ -7,7 +7,7 @@ import javax.servlet.http.*;
 import dao.*;
 import dto.*;
 
-public class BoardListCommand implements BoardCommand {
+public class BoardListCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest reqeust, HttpServletResponse response) {

@@ -6,7 +6,7 @@ import javax.servlet.http.*;
 
 import dao.*;
 
-public class BoardInsertCommand implements BoardCommand {
+public class BoardInsertCommand implements Command {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
